@@ -60,7 +60,7 @@ func binarySearch(array a: [Int], length n: Int, value x: Int) -> Int? {
  We can test this by looking for the value 7 in an ordered array of the 
  numbers from 1 to 10.
 
- Remembering that arrays in swift use indexes starting at 0, we would 
+ Remembering that arrays in Swift use indexes starting at 0, we would 
  expect to find the value 7 at location 6. i.e. `a[6] = 7`
  
  */
