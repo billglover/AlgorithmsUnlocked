@@ -52,3 +52,20 @@ func TestValueNotFound(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func BenchmarkBinarySort(b *testing.B) {
+	A := make([]int, 1000000)
+	n := len(A)
+
+	// create an array to search
+	for i := 0; i < n; i++ {
+		A[i] = i
+	}
+
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		x := rand.Intn(n)
+		binarySearch(A, n, x)
+	}
+}
