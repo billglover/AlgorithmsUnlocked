@@ -17,6 +17,12 @@ func TestMain(m *testing.M) {
 	os.Exit(m.Run())
 }
 
+func BenchmarkBinarySort1K(b *testing.B) {BinarySortBenchmark(b, 1000)}
+func BenchmarkBinarySort10K(b *testing.B) {BinarySortBenchmark(b, 10000)}
+func BenchmarkBinarySort100K(b *testing.B) {BinarySortBenchmark(b, 100000)}
+func BenchmarkBinarySort1M(b *testing.B) {BinarySortBenchmark(b, 1000000)}
+func BenchmarkBinarySort10M(b *testing.B) {BinarySortBenchmark(b, 10000000)}
+
 func TestValueFound(t *testing.T) {
 	
 	A := make([]int, 100)
@@ -53,9 +59,8 @@ func TestValueNotFound(t *testing.T) {
 	}
 }
 
-func BenchmarkBinarySort(b *testing.B) {
-	A := make([]int, 1000000)
-	n := len(A)
+func BinarySortBenchmark(b *testing.B, n int) {
+	A := make([]int, n)
 
 	// create an array to search
 	for i := 0; i < n; i++ {
